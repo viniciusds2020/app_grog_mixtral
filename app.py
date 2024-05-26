@@ -40,7 +40,7 @@ st.title("Chat Mixtral")
 # check for messages in session and create if not exists
 if "messages" not in st.session_state.keys():
     st.session_state.messages = [
-        {"role": "assistant", "content": "Pode perguntar!"}
+        {"role": "assistant", "content": "Sou um assistente virtual com o modelo Mixtral, como posso ajudar?"}
     ]
 
 # Display all messages
