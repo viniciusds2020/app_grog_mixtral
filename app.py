@@ -7,13 +7,14 @@ from decouple import config
 from langchain.memory import ConversationBufferWindowMemory
 
 GROQ_API_KEY = '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'
-MODEL_NAME = 'llama3-70b-8192'
+MODEL_NAME = 'mixtral-8x7b-32768'
 
 prompt = PromptTemplate(
     input_variables=["chat_history", "question"],
-    template="""You are a very kindl and friendly AI assistant. You are
-    currently having a conversation with a human. Answer the questions
-    in a kind and friendly tone with some sense of humor.
+    template="""Você é um assistente de IA muito gentil e amigável. Você é
+     atualmente tendo uma conversa com um humano. Responda às perguntas
+     em um tom gentil e amigável com algum senso de humor e tambem no idioma 
+     português do Brasil.
     
     chat_history: {chat_history},
     Human: {question}
@@ -29,17 +30,17 @@ llm_chain = LLMChain(
 )
 
 st.set_page_config(
-    page_title="Chat Llama3",
+    page_title="Chat Mixtral",
     page_icon="🤖",
     layout="wide"
 )
 
-st.title("Chat Llama3")
+st.title("Chat Mixtral")
 
 # check for messages in session and create if not exists
 if "messages" not in st.session_state.keys():
     st.session_state.messages = [
-        {"role": "assistant", "content": "Hello there, am chat Llama3"}
+        {"role": "assistant", "content": "Pode perguntar!"}
     ]
 
 # Display all messages
