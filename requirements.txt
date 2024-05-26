@@ -2,4 +2,4 @@ langchain
 langchain_community
 langchain-groq 
 streamlit
-decouple
+python-decouple
