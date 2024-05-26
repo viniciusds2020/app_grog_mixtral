@@ -1,9 +1,8 @@
 import streamlit as st
+from decouple import config
 from langchain_groq import ChatGroq
-from langchain.chat_models import ChatOpenAI
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
-from decouple import config
 from langchain.memory import ConversationBufferWindowMemory
 
 GROQ_API_KEY = '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'
@@ -35,7 +34,17 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("Chat Mixtral")
+st.title(":computer: Assistente Virtual | Mixtral | DFS :computer:")
+
+with st.expander("Apresentação do modelo Mixtral"):
+    st.write('''
+    O modelo Mixtral é uma avançada rede neural de deep learning, especializada em processamento de linguagem natural. 
+    Combinando técnicas de transformadores e recursos conceituais, ele permite uma geração de 
+    texto altamente fluente e contextualmente relevante, trazendo interações mais humanas e 
+    enriquecedoras às suas experiências digitais.
+    ''')
+
+st.markdown("---")
 
 # check for messages in session and create if not exists
 if "messages" not in st.session_state.keys():
