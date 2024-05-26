@@ -39,7 +39,7 @@ st.title("Chat Llama3")
 # check for messages in session and create if not exists
 if "messages" not in st.session_state.keys():
     st.session_state.messages = [
-        {"role": "assistant", "content": "Hello there, am ChatGPT clone"}
+        {"role": "assistant", "content": "Hello there, am chat Llama3"}
     ]
 
 # Display all messages
