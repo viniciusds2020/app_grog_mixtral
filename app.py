@@ -10,10 +10,9 @@ MODEL_NAME = 'mixtral-8x7b-32768'
 
 prompt = PromptTemplate(
     input_variables=["chat_history", "question"],
-    template="""Você é um assistente de IA muito gentil e amigável. Você é
+    template="""Você é um assistente de IA. Você é
      atualmente tendo uma conversa com um humano. Responda às perguntas
-     em um tom gentil e amigável com algum senso de humor e tambem no idioma 
-     português do Brasil.
+     em um tom amigável e tambem no idioma português do Brasil.
     
     chat_history: {chat_history},
     Human: {question}
@@ -21,7 +20,7 @@ prompt = PromptTemplate(
 )
 
 llm = ChatGroq(temperature=0.7, groq_api_key=GROQ_API_KEY, model_name=MODEL_NAME)
-memory = ConversationBufferWindowMemory(memory_key="chat_history", k=4)
+memory = ConversationBufferWindowMemory(memory_key="chat_history", k=6)
 llm_chain = LLMChain(
     llm=llm,
     memory=memory,
@@ -42,9 +41,10 @@ with st.expander("Apresentação do modelo Mixtral"):
     Combinando técnicas de transformadores e recursos conceituais, ele permite uma geração de 
     texto altamente fluente e contextualmente relevante, trazendo interações mais humanas e 
     enriquecedoras às suas experiências digitais.
-    ''')
 
-st.markdown("---")
+    https://mistral.ai/news/mixtral-of-experts/
+
+    ''')
 
 # check for messages in session and create if not exists
 if "messages" not in st.session_state.keys():
